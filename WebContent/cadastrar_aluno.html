@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Login</title>
+    <link href="http://localhost:8080/PW1/css/bootstrap.css" rel="stylesheet">
+    <link href="http://localhost:8080/PW1/css/ui.css" rel="stylesheet">
+</head>
+<body>
+    <div class="mt-4 p-4 container">
+        <h3>Cadastrar Aluno</h3>
+        <form class="m-4" action="http://localhost:8080/PW1/CadastroServlet" method="post">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input name="nome" type="text" class="form-control" id="nome" placeholder="informe o nome do aluno"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="idade">Idade</label>
+                <input name="idade" type="number" class="form-control" id="idade" placeholder="Informe sua idade"
+                    required>
+            </div>
+            <label for="genero">Gênero</label>
+            <div>
+                <input class="mt-2 mr-2 mb-2" name="genero" value="masculino" type="radio" required>Masculino
+                <input class="m-2" name="genero" value="feminino" type="radio">Feminino
+                <input class="m-2" name="genero" value="alternativo" type="radio">Alternativo
+            </div>
+            <br>
+
+            <label>Disciplinas</label>
+
+            <div>
+                <input class="mt-2 mr-2 mb-2" name="pog" type="checkbox" id="pog">P.O.G
+                <input class="m-2" name="sog" type="checkbox" id="sog">S.O.G
+            </div>
+            <br>
+            <a class="btn btn-secondary" href="http://localhost:8080/PW1/menu_usuario.html">Voltar</a>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

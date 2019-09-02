@@ -1,1 +1,16 @@
 @charset "ISO-8859-1";
+
+html, body{
+	background-color: #C3C3C3;
+}
+
+.container{
+	background-color: #FFFFFF;
+}
+
+.menuButton{
+	width: 40%;
+}
+
+
+
