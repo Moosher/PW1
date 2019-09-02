@@ -51,7 +51,7 @@ public class CadastroServlet extends HttpServlet {
 			this.lstAlunos.add(aluno);
 		} catch (Exception e) {
 		}
-		this.printAlunos(response);
+		response.sendRedirect("http://localhost:8080/PW1/menu_usuario.html");
 	}
 
 	private void printAlunos(HttpServletResponse response) throws IOException {
