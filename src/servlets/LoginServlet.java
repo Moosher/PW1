@@ -27,8 +27,9 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		if (request.getParameter("user").equals("fernando") && request.getParameter("psswd").equals("phaze")) {
 			response.sendRedirect("http://localhost:8080/PW1/menu_usuario.html");
+			response.setStatus(HttpServletResponse.SC_ACCEPTED);
 		} else {
-			response.sendRedirect("http://localhost:8080/PW1/login_erro.html");
+			response.sendError(HttpServletResponse.SC_FORBIDDEN);
 		}
 	}
 }

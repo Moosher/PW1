@@ -1,18 +1,59 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="ISO-8859-1">
-	<title>Login</title>
-	<link href="http://localhost:8080/PW1/css/bootstrap.css" rel="stylesheet">
-	<link href="http://localhost:8080/PW1/css/ui.css" rel="stylesheet">
+    <meta charset="ISO-8859-1">
+    <title>Login</title>
+    <link href="http://localhost:8080/PW1/css/bootstrap.css" rel="stylesheet">
+    <link href="http://localhost:8080/PW1/css/ui.css" rel="stylesheet">
+    <!-- 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+    <script src="http://localhost:8080/PW1/js/jquery-3.3.1.js"></script>
 </head>
+
 <body>
-	<div class="mt-4 container d-flex flex-column align-items-center">
-		<a class="m-4 btn btn-primary menuButton" href="http://localhost:8080/PW1/cadastrar_aluno.html">Cadastro de
+    <div class="mt-4 container d-flex flex-column align-items-center">
+        <a class="m-4 btn btn-secondary menuButton" id="AJAX" onClick="listar()">AJAX</a>
+        <a class="m-4 btn btn-primary menuButton" href="http://localhost:8080/PW1/cadastrar_aluno.html">Cadastro de
 			Alunos</a>
-		<a class="m-4 btn btn-primary menuButton" href="http://localhost:8080/PW1/CadastroServlet">Listagem de
+        <a class="m-4 btn btn-primary menuButton" href="http://localhost:8080/PW1/CadastroServlet">Listagem de
 			Alunos</a>
-		<a class="m-4 btn btn-secondary menuButton" href="http://localhost:8080/PW1/">Sair</a>
-	</div>
+        <a class="m-4 btn btn-secondary menuButton" href="http://localhost:8080/PW1/">Sair</a>
+        <div id="listR" class="p-3 w-100" style="background-color: red;"></div>
+        <div id="listB" class="p-3 w-100" style="background-color: blue;"></div>
+    </div>
 </body>
+<script>
+    $(function() {
+        $.get({
+            url: "http://localhost:8080/PW1/AJAXServlet",
+            success: function(data) {
+                var dt = data.split(";");
+                for (var i = 0; i < dt.length; i++) {
+                    $("#listB").append("<p>" + dt[i] + "</p>")
+                }
+            }
+        }).fail(function() {
+            location.replace("http://localhost:8080/PW1/login_erro.html");
+        }).always(function() {
+            console.log("fim");
+        })
+    });
+
+    function listar() {
+        $.get({
+            url: "http://localhost:8080/PW1/AJAXServlet",
+            success: function(data) {
+                var dt = data.split(";");
+                for (var i = 0; i < dt.length; i++) {
+                    $("#listR").append("<p>" + dt[i] + "</p>")
+                }
+            }
+        }).fail(function() {
+            location.replace("http://localhost:8080/PW1/login_erro.html");
+        }).always(function() {
+            console.log("fim");
+        })
+    }
+</script>
+
 </html>
